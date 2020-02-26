@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/interactiveMap.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    </link>
+    <title>Interactive Map</title>
+</head>
+<body>
+    <div id="map"></div>
+
+    <div id="left_panel_1" class="left_panel"></div>
+
+    <div id="right_info_panel">
+        <div class="row_content">
+            <span class="frontier"></span>
+            <p>Border position</p>
+        </div>
+        <div class="row_content">
+            <span class="hospital"></span>
+            <p>Hospitals</p>
+        </div>
+        <div>
+            <p id="info_txt">Click over the markers to see more information about</p>
+        </div>
+    </div>
+    <!-- Scripts -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="./assets/js/interactiveMapMain.js"></script>
+        <script type="text/javascript" src="./assets/data/colombiaGeojson.js"></script>
+        <script async defer
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB63_2wCGLLuvMadVGTh8oaaPKIcH67sBs&callback=onGoogleMapResponse&libraries=geometry">
+        </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+html, body {
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    height: 100vh;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    width: 100vw !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+/* Scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent !important;
+    padding: 0.5em !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+#map{
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    width: 100vw;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: absolute;
+    z-index: 0;
+}
+
+.left_panel{
+    width: 40vw;
+    min-width: 40vw;
+    max-width: 40vw !important;
+    height: 90vh;
+    min-height: 90vh;
+    max-height: 90vh !important;
+    overflow-y: scroll;
+    left: -43vw;
+    top: 60px;
+    margin-left: 10px;
+    transition: left 0.75s ease-in-out 1.25s;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#right_info_panel {
+    width: 12vw;
+    max-width: 12vw;
+    height: auto;
+    padding: 1em;
+    right: -20vw;
+    top: 60px;
+    margin-right: 10px;
+    transition: right 0.75s ease-in-out 1.25s;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#right_info_panel .row_content{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#right_info_panel .row_content .frontier{
+    width: 45px;
+    min-width: 45px;
+    max-width: 45px;
+    height: 45px;
+    min-width: 45px;
+    max-width: 45px;
+    border-radius: 5px;
+    background-color: #8BC34A;
+    border: solid 1px #558B2F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+#right_info_panel .row_content .frontier::before{
+    color: white;
+    font-weight: bold;
+    content: "P";
+}
+
+#right_info_panel .row_content .hospital {
+    width: 45px;
+    min-width: 45px;
+    max-width: 45px;
+    height: 45px;
+    min-width: 45px;
+    max-width: 45px;
+    border-radius: 5px;
+    background-color: #03A9F4;
+    border: solid 1px #0277BD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+#right_info_panel .row_content .hospital::before {
+    color: white;
+    font-weight: bold;
+    content: "H";
+}
+
+#right_info_panel .row_content p{
+    width: auto;
+    color: white !important;
+    font-size: 1.15em;
+    margin-left: 15px;
+    text-align: start;
+}
+
+#right_info_panel #info_txt{
+    margin-top: 1.4em !important;
+    width: 100% !important;
+    color: white !important;
+    text-align: center !important;
+    font-size: 0.75em !important;
+}
+
+.left_panel_content{
+    width: 90%;
+    max-width: 90% !important;
+    max-height: 90% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.left_panel_h2{
+    width: 60%;
+    font-size: 1.35em;
+    text-align: center;
+}
