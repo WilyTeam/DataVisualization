@@ -111,6 +111,7 @@ hospitals = {
 // MAP
 
 var map;
+let openInfoWindow = null;
 
 function onGoogleMapResponse() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -230,6 +231,9 @@ function setPolygons(){
 }
 
 function polygonOnClick(id, event) {
+    if (openInfoWindow != null)
+        openInfoWindow.close();
+
     let inmigrantScore = "";
 
     if (data[id].nInmigrants <= 7000) {
@@ -347,6 +351,7 @@ function polygonOnClick(id, event) {
 
     infowindow.setZIndex(2000);
     infowindow.open(map);
+    openInfoWindow = infowindow;
 }
 
 function setPolygonsColor(nInmigrants) {
@@ -428,6 +433,8 @@ function setHospitalMarker(latlng, name) {
 // INFO WINDOWS
 
 function displayFrontierInfoWindow(frontier) {
+    if (openInfoWindow != null)
+        openInfoWindow.close();
 
     var contentString =
         '<div class = "info_window_close_button_container" ></div>' +
@@ -448,9 +455,12 @@ function displayFrontierInfoWindow(frontier) {
 
     infowindow.setZIndex(2000);
     infowindow.open(map);
+    openInfoWindow = infowindow;
 }
 
 function displayHospitalInfoWindow(hospital) {
+    if (openInfoWindow != null)
+        openInfoWindow.close();
 
     var contentString =
         '<div class = "info_window_close_button_container" ></div>' +
@@ -471,6 +481,7 @@ function displayHospitalInfoWindow(hospital) {
 
     infowindow.setZIndex(2000);
     infowindow.open(map);
+    openInfoWindow = infowindow;
 }
 
 function getMapOffset() {
