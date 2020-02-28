@@ -48,20 +48,27 @@ function buildInitialData(){
         deptData.geometry = value.geometry;
         deptData.nInmigrants = n_inmigrants[id];
         deptData.color = setPolygonsColor(n_inmigrants[id]);
+        deptData.infowindow = [];
         data.push(deptData);
         id++;
     });
 }
 
-function setLeftPanelContent(contentType) {
+function setLeftPanelContent(id) {
     let content = '<div class="left_panel_content">';
 
-    if(contentType == "default"){
+    if(id == -1){
         content = content + 
             '<span style="font-size: 7em; color: white;">' +
                 '<i class="fas fa-info-circle"></i>' +
             '</span>' + 
-            '<h2 class="left_panel_h2">Click over any department to see the complet info about it.</h2>';
+            '<h2 class="left_panel_h2">The full info of a state will be showed here.</h2>';
+    }else{
+        content = content +     
+            '<span style="font-size: 7em; color: white;">' +
+            '<i class="fas fa-info-circle"></i>' +
+            '</span>' +
+            '<h2 class="left_panel_h2">' + data[id].name + '</h2>';
     }
 
     content = content + '</div>';
@@ -73,9 +80,33 @@ $(document).ready(function () {
     buildInitialData();
     $("#left_panel_1").css("left", "0");
     $("#right_info_panel").css("right", "0");
-    setLeftPanelContent("default");
+    setLeftPanelContent(-1);
 });
 
+frontiers = {
+    "Paraguachón": [11.360313, -72.129504],
+    "La Unión Puerto Santander": [8.365329, -72.404154],
+    "Francisco de Paula Santander bridge": [7.916718, -72.462545],
+    "Simon Bolívar bridge": [7.819144, -72.453193],
+    "José Antonio Páez bridge": [7.089164, -70.740287],
+    "Puerto Carreño": [6.185029, -67.491604],
+    "Puerto Inírida": [3.880623, -67.923766],
+    "Rumichaca": [0.814321, -77.664061],
+    "San Miguél river": [0.251864, -76.875878]
+};
+
+hospitals = {
+    "San cristobal de la cienaga": [[11.015383, -74.245945]],
+    "Departamental hospital Juan Domínguez": [[10.916905, -74.763093]],
+    "General hospital of Barranquilla": [[10.973205, -74.780440]],
+    "Leon XIII universitary hospital": [[6.266953, -75.565402]],
+    "Valle del Lili de Cali hospital": [[3.373182, -76.526273]],
+    "San Rafael de albania hospital": [[11.160337, -72.591577]],
+    "San agustin hospital": [[10.885786, -72.855616]],
+    "ESE imsalud": [[7.884428, -72.486923]],
+    "Erasmo Meoz hospital": [[7.904306, -72.491108]],
+    "San Ignacio hospital": [[4.628549, -74.064004]]
+}
 
 // MAP
 
@@ -91,26 +122,26 @@ function onGoogleMapResponse() {
     });
 
     setPolygons();
-    setFrontierMarker([11.360313, -72.129504], "Paraguachon");
-    setFrontierMarker([8.365329, -72.404154], "Puerto santander");
-    setFrontierMarker([7.916718, -72.462545], "Puente fransisco santander");
-    setFrontierMarker([7.819144, -72.453193], "Puente simon bolivar");
-    setFrontierMarker([7.089164, -70.740287], "Puente jose paez");
-    setFrontierMarker([6.185029, -67.491604], "Puerto carreno");
-    setFrontierMarker([3.880623, -67.923766], "Iniridia");
-    setFrontierMarker([0.814321, -77.664061], "Rumichaca");
-    setFrontierMarker([0.251864, -76.875878], "San miguel");
+    setFrontierMarker(frontiers["Paraguachón"], "Paraguachón");
+    setFrontierMarker(frontiers["La Unión Puerto Santander"], "La Unión Puerto Santander");
+    setFrontierMarker(frontiers["Francisco de Paula Santander bridge"], "Francisco de Paula Santander bridge");
+    setFrontierMarker(frontiers["Simon Bolívar bridge"], "Simon Bolívar bridge");
+    setFrontierMarker(frontiers["José Antonio Páez bridge"], "José Antonio Páez bridge");
+    setFrontierMarker(frontiers["Puerto Carreño"], "Puerto Carreño");
+    setFrontierMarker(frontiers["Puerto Inírida"], "Puerto Inírida");
+    setFrontierMarker(frontiers["Rumichaca"], "Rumichaca");
+    setFrontierMarker(frontiers["San Miguél river"], "San Miguél river");
     
-    setHospitalMarker([11.015383, -74.245945], "San cristobal de la cienaga");
-    setHospitalMarker([10.916905, -74.763093], "Departamental Juan Domínguez");
-    setHospitalMarker([10.973205, -74.780440], "General de Barranquilla");
-    setHospitalMarker([6.266953, -75.565402], "Leon XIII");
-    setHospitalMarker([3.373182, -76.526273], "Valle del Lili de Cali");
-    setHospitalMarker([11.160337, -72.591577], "San Rafael de albania");
-    setHospitalMarker([10.885786, -72.855616], "San agustin");
-    setHospitalMarker([7.884428, -72.486923], "ESE imsalud");
-    setHospitalMarker([7.904306, -72.491108], "Erasmo Meoz");
-    setHospitalMarker([4.628549, -74.064004], "San Ignacio");
+    setHospitalMarker(hospitals["San cristobal de la cienaga"][0], "San cristobal de la cienaga");
+    setHospitalMarker(hospitals["Departamental hospital Juan Domínguez"][0], "Departamental hospital Juan Domínguez");
+    setHospitalMarker(hospitals["General hospital of Barranquilla"][0], "General hospital of Barranquilla");
+    setHospitalMarker(hospitals["Leon XIII universitary hospital"][0], "Leon XIII universitary hospital");
+    setHospitalMarker(hospitals["Valle del Lili de Cali hospital"][0], "Valle del Lili de Cali hospital");
+    setHospitalMarker(hospitals["San Rafael de albania hospital"][0], "San Rafael de albania hospital");
+    setHospitalMarker(hospitals["San agustin hospital"][0], "San agustin hospital");
+    setHospitalMarker(hospitals["ESE imsalud"][0], "ESE imsalud");
+    setHospitalMarker(hospitals["Erasmo Meoz hospital"][0], "Erasmo Meoz hospital");
+    setHospitalMarker(hospitals["San Ignacio hospital"][0], "San Ignacio hospital");
 }
 
 function setMapCenter(latlng) {
@@ -122,7 +153,7 @@ function setPolygons(){
 
     var addListenersOnPolygon = function (polygon) {
         google.maps.event.addListener(polygon, 'click', function (event) {
-            polygonOnClick(polygon.indexID);
+            polygonOnClick(polygon.indexID, event);
         });
     };
 
@@ -195,12 +226,127 @@ function setPolygons(){
                 });
             });
         }
-        
     });
 }
 
-function polygonOnClick(id){
-    console.log(id);
+function polygonOnClick(id, event) {
+    let inmigrantScore = "";
+
+    if (data[id].nInmigrants <= 7000) {
+        inmigrantScore = 
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>';
+    } else if (data[id].nInmigrants > 7000 && data[id].nInmigrants <= 15000) {
+        inmigrantScore =
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>';
+    } else if (data[id].nInmigrants > 15000 && data[id].nInmigrants <= 60000) {
+        inmigrantScore = 
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>';
+    } else if (data[id].nInmigrants > 60000 && data[id].nInmigrants <= 150000) {
+        inmigrantScore = 
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; margin-right: 8px;">' +
+                '<i class="fas fa-male stroke-transparent"></i>' +
+            '</span>';
+    } else if (data[id].nInmigrants > 150000) {
+        inmigrantScore = 
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>' +
+            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
+                '<i class="fas fa-male"></i>' +
+            '</span>';
+    }
+
+    var contentString =
+        '<div class = "info_window_close_button_container" ></div>' +
+        '<div class = "polygon_info_window">' +
+            '<h1>' + data[id].name + '</h1>' +
+            '<div class="divider"></div>' +
+            '<div class = "numbers_info">' +
+                '<div class = "score">' +
+                    inmigrantScore +
+                '</div>' +
+                '<div class = "score_txt">' +
+                    '<p style="color: ' + data[id].color + ';">' + data[id].nInmigrants + '</p>' +
+                    '<p class="inmigrants"> Inmigrants</p>' +
+                '</div>' +
+            '</div>' +
+            '<a onclick="setLeftPanelContent(' + id + ')" class="button alt fit">SHOW FULL INFO</a>' +
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        position: event.latLng,
+        content: contentString
+    });
+
+    infowindow.addListener('closeclick', function () {
+        setLeftPanelContent(-1);
+    });
+
+    infowindow.setZIndex(2000);
+    infowindow.open(map);
 }
 
 function setPolygonsColor(nInmigrants) {
@@ -252,7 +398,7 @@ function setFrontierMarker(latlng, name){
     });
 
     google.maps.event.addListener(marker, 'click', function () {
-        console.log(marker.url);
+        displayFrontierInfoWindow(marker.url);
     });
 }
 
@@ -275,8 +421,56 @@ function setHospitalMarker(latlng, name) {
     });
 
     google.maps.event.addListener(marker, 'click', function () {
-        console.log(marker.url);
+        displayHospitalInfoWindow(marker.url);
     });
+}
+
+// INFO WINDOWS
+
+function displayFrontierInfoWindow(frontier) {
+
+    var contentString =
+        '<div class = "info_window_close_button_container" ></div>' +
+        '<div class = "marker_info_window">' +
+            '<div class = "title">' +
+                '<h1>' + frontier + '</h1>' +
+                '<span class="icon_frontier"></span>' +
+            '</div>' +
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        position: {
+            lat: frontiers[frontier][0],
+            lng: frontiers[frontier][1]
+        },
+        content: contentString
+    });
+
+    infowindow.setZIndex(2000);
+    infowindow.open(map);
+}
+
+function displayHospitalInfoWindow(hospital) {
+
+    var contentString =
+        '<div class = "info_window_close_button_container" ></div>' +
+        '<div class = "marker_info_window">' +
+        '<div class = "title">' +
+        '<h1>' + hospital + '</h1>' +
+        '<span class="icon_hospital"></span>' +
+        '</div>' +
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        position: {
+            lat: hospitals[hospital][0][0],
+            lng: hospitals[hospital][0][1]
+        },
+        content: contentString
+    });
+
+    infowindow.setZIndex(2000);
+    infowindow.open(map);
 }
 
 function getMapOffset() {
