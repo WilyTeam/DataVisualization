@@ -1627,7 +1627,7 @@
 	}
 	.second{
 		width: 90em;
-		height: 90em;
+		height: 40em;
 	}
 
 	@media screen and (max-width: 1280px) {
@@ -1638,7 +1638,7 @@
 
 		.second{
 			width: 90%;
-			height: 90%;
+		
 		}
 	}
 
@@ -1650,7 +1650,7 @@
 
 		.second{
 			width: 80%;
-			height: 80%;
+			
 		}
 
 	}
@@ -1927,19 +1927,103 @@
 
 		}
 
+/* popup */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+		
+
+
+
+/*graph */
+.graph {
+	background-color: rgb(255,255,255,1);
+	color: #000; 
+}
+
 /* Graphics Box */
 
 	.graphics_box {
-		background: rgba(255, 255, 255, 0.849);
-		border-radius: 5px;
-		overflow: hidden;
+		background: rgba(255, 255, 255, 0);
 		padding: 2em;
 		width: auto !important;
-		
-		max-width: 88vw !important;
-		height: 100%;
-		max-height: 81vh !important;
-		/*margin: 0 0 10vh 0 !important;*/
+		height: auto !important;
+		margin: 0 0 0 0 !important;
+		-moz-align-items: center;
+    	-webkit-align-items: center;
+    	-ms-align-items: center;
+    	align-items: center;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		border-top: 0;
+		position: relative;
+		text-align: center;
+		overflow: hidden;
 	}
 
 		.graphics_box > :last-child,
@@ -1952,7 +2036,7 @@
 			font-size: 4em;
 			line-height: 1.1;
 			margin-bottom: 0.35em;
-			color: rgba(0, 0, 0, 0.75);
+			color: rgb(0, 0, 0);
 			text-transform: none;
 		}
 
