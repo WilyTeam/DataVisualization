@@ -44,7 +44,7 @@ function buildInitialData(){
         deptData = {};
         deptData.id = id;
         deptData.name = value.properties.NOMBRE_DPT;
-        deptData.area = value.properties.AREA / 1000000;
+        deptData.area = Math.round(value.properties.AREA / 1000000);
         deptData.geometry = value.geometry;
         deptData.nInmigrants = n_inmigrants[id];
         deptData.color = setPolygonsColor(n_inmigrants[id]);
@@ -54,8 +54,112 @@ function buildInitialData(){
     });
 }
 
+function setInmigrantScore(id, scoreSize){
+    let inmigrantScore = "";
+    let size = "";
+
+    if (scoreSize == "L"){
+        size = "2.7em";
+    }else{
+        size = "1.5em";
+    }
+
+    if (id != -1){
+        if (data[id].nInmigrants <= 7000) {
+            inmigrantScore = 
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>';
+        } else if (data[id].nInmigrants > 7000 && data[id].nInmigrants <= 15000) {
+            inmigrantScore =
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>';
+        } else if (data[id].nInmigrants > 15000 && data[id].nInmigrants <= 60000) {
+            inmigrantScore = 
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>';
+        } else if (data[id].nInmigrants > 60000 && data[id].nInmigrants <= 150000) {
+            inmigrantScore = 
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male stroke-transparent"></i>' +
+                '</span>';
+        } else if (data[id].nInmigrants > 150000) {
+            inmigrantScore = 
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>' +
+                '<span style="font-size:' + size + '; color: ' + data[id].color + '; margin-right: 8px;">' +
+                    '<i class="fas fa-male"></i>' +
+                '</span>';
+        }
+    }
+
+    return inmigrantScore;
+}
+
 function setLeftPanelContent(id) {
     let content = '<div class="left_panel_content">';
+
+    let inmigrantScore = setInmigrantScore(id, "S");
 
     if(id == -1){
         content = content + 
@@ -65,10 +169,23 @@ function setLeftPanelContent(id) {
             '<h2 class="left_panel_h2">The full info of a state will be showed here.</h2>';
     }else{
         content = content +     
-            '<span style="font-size: 7em; color: white;">' +
-            '<i class="fas fa-info-circle"></i>' +
-            '</span>' +
-            '<h2 class="left_panel_h2">' + data[id].name + '</h2>';
+            '<div class="state_content">' +
+                '<div class="general_info">' +
+                    '<div class="title">' +
+                        '<h1 style="color: ' + data[id].color + '">' + data[id].name + '</h1>' +
+                        '<div class = "score">' +
+                            inmigrantScore +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="general_info">' +
+                        '<ul>' +
+                            '<li><span class="bold_txt">Inmigrantes: </span>' + data[id].nInmigrants + '</li>' +
+                            '<li><span class="bold_txt">Superficie: </span>' + data[id].area + ' km²</li>' +
+                            '<li><span class="bold_txt">Ciudades principales: </span></li>' +
+                        '</ul>'
+                    '</div>' +
+                '</div>' +
+            '</div>';
     }
 
     content = content + '</div>';
@@ -234,94 +351,7 @@ function polygonOnClick(id, event) {
     if (openInfoWindow != null)
         openInfoWindow.close();
 
-    let inmigrantScore = "";
-
-    if (data[id].nInmigrants <= 7000) {
-        inmigrantScore = 
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>';
-    } else if (data[id].nInmigrants > 7000 && data[id].nInmigrants <= 15000) {
-        inmigrantScore =
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>';
-    } else if (data[id].nInmigrants > 15000 && data[id].nInmigrants <= 60000) {
-        inmigrantScore = 
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>';
-    } else if (data[id].nInmigrants > 60000 && data[id].nInmigrants <= 150000) {
-        inmigrantScore = 
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; margin-right: 8px;">' +
-                '<i class="fas fa-male stroke-transparent"></i>' +
-            '</span>';
-    } else if (data[id].nInmigrants > 150000) {
-        inmigrantScore = 
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>' +
-            '<span style="font-size: 2.7em; color: ' + data[id].color + '; margin-right: 8px;">' +
-                '<i class="fas fa-male"></i>' +
-            '</span>';
-    }
+    let inmigrantScore = setInmigrantScore(id, "L");
 
     var contentString =
         '<div class = "info_window_close_button_container" ></div>' +
