@@ -24,7 +24,7 @@
             <li><a href="elements.html">Elements</a></li>
         </ul>
     </nav>
-    <!-- Banner -->
+    <!-- One -->
     <section id="banner" class="bg-img" data-bg="banner4.jpg">
         <div class="inner first">
             <header>
@@ -37,33 +37,134 @@
         </div>
         <a href="#one" class="more">Learn More</a>
     </section>
-    <!-- One -->
+
     <section id="one" class="wrapper graph">
 
         <div class="graphics_box">
             <article class="inner second">
                 <header>
-                    <h1> Estadisticas</h1>
-                    <p class="presentation_text">
-                        aqui van las graficas
-                    </p>
-                    <a href="#popup1">clickeame</a>
+                    <h1> Age</h1>
+                    <video class="exporevideo">
+                        <source src="videos/age.mp4" type="video/mp4">
+                    </video>
+                </header>
 
-                    <div id="popup1" class="overlay">
-                        <div class="popup">
-                            <h2>un titulo</h2>
-                            <a class="close" href="#">&times;</a>
-                            <div class="content">
-                                Informacion :D
-                            </div>
+            </article>
+            <article class="inner second">
+                <header>
+                    <h1> Education</h1>
+                    <video class="exporevideo">
+                        <source src="videos/education.mp4" type="video/mp4">
+
+                    </video>
+                </header>
+                <a href="#popup1">Show more</a>
+
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <h2>un titulo</h2>
+                        <a class="close" href="#">&times;</a>
+                        <div class="content">
+                            Informacion :D
                         </div>
                     </div>
-                </header>
+                </div>
             </article>
         </div>
 
     </section>
 
+    <!-- Two -->
+    <section id="banner" class="bg-img" data-bg="banner4.jpg">
+        <div class="inner first">
+            <header>
+                <h1>Why they are migrating?</h1>
+            </header>
+        </div>
+        <a href="#two" class="more">Learn More</a>
+    </section>
+    <section id="two" class="wrapper graph">
+
+        <div class="graphics_box">
+            <article class="inner second">
+                <header>
+                    <h1>Psychological</h1>
+                    <video class="exporevideo">
+                        <source src="videos/orange_animation_left.mp4" type="video/mp4">
+                    </video>
+                </header>
+
+            </article>
+            <article class="inner second">
+                <header>
+                    <h1> Socio-Economic</h1>
+                    <video class="exporevideo">
+                        <source src="videos/green_animation_right.mp4" type="video/mp4">
+
+                    </video>
+                </header>
+            </article>
+        </div>
+
+    </section>
+    <!-- three-->
+    <section id="banner" class="bg-img" data-bg="banner4.jpg">
+        <div class="inner first">
+            <header>
+                <h1>What about health?</h1>
+            </header>
+        </div>
+        <a href="#one" class="more">Learn More</a>
+    </section>
+    <section id="two" class="wrapper graph">
+
+        <div class="graphics_box">
+            <article class="inner second">
+                <header>
+                    <video class="exporevideo">
+                        <source src="videos/medical_attention.mp4" type="video/mp4">
+                    </video>
+                </header>
+
+            </article>
+            <article class="inner second">
+                <header>
+                    <h1> Medical Attention</h1>
+                </header>
+            </article>
+        </div>
+        <div class="graphics_box">
+            <article class="inner second">
+                <header>
+                    <h1> Urgency Attention</h1>
+                </header>
+            </article>
+            <article class="inner second">
+                <header>
+                    <video class="exporevideo">
+                        <source src="videos/emergency_service.mp4" type="video/mp4">
+                    </video>
+                </header>
+
+            </article>
+        </div>
+        <div class="graphics_box">
+            <article class="inner second">
+                <header>
+                    <video class="exporevideo">
+                        <source src="videos/medicines_access.mp4" type="video/mp4">
+                    </video>
+                </header>
+
+            </article>
+            <article class="inner second">
+                <header>
+                    <h1> Medicines Access</h1>
+                </header>
+            </article>
+        </div>
+
+    </section>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -71,6 +172,23 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        $(window).scroll(function (e) {
+            var offsetRange = $(window).height() / 3,
+                offsetTop = $(window).scrollTop() + offsetRange + $("#header").outerHeight(true),
+                offsetBottom = offsetTop + offsetRange;
+
+            $(".exporevideo").each(function () {
+                var y1 = $(this).offset().top;
+                var y2 = offsetTop;
+                if (y1 + $(this).outerHeight(true) < y2 || y1 > offsetBottom) {
+                    this.pause();
+                } else {
+                    this.play();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
