@@ -83,7 +83,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #right_info_panel {
@@ -192,13 +192,24 @@ html, body {
 .left_panel_content{
     width: 90%;
     max-width: 90% !important;
-    max-height: 90% !important;
+    height: auto;
+    max-height: 90vh !important;
+    display: inline-block;
+    color: white;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.left_panel_content .default_content{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .left_panel_h2{
@@ -384,8 +395,8 @@ html, body {
 }
 
 .left_panel_content .state_content,
-.left_panel_content .state_content .general_info{
-    width: 100%;
+.left_panel_content .state_content .info_container{
+    width: 100% !important;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -394,16 +405,25 @@ html, body {
     color: white;
 }
 
-.left_panel_content .state_content .general_info .title{
-    width: 100%;
+.left_panel_content .state_content .divider{
+    width: 100% !important;
+    height: 1px !important;
+    margin: 0.2em 0 0.2em 0;
+    background-color: white;
+}
+
+.left_panel_content .state_content .info_container .title{
+    width: 100% !important;
+    min-width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-top: 1.5em;
 }
 
-.left_panel_content .state_content .general_info .title h1{
+.left_panel_content .state_content .info_container .title h1{
     width: 80%;
     max-width: 80% !important;
     height: auto;
@@ -413,7 +433,17 @@ html, body {
     text-align: start;
 }
 
-.left_panel_content .state_content .general_info .title .score{
+.left_panel_content .state_content .info_container h2{
+    width: 100%;
+    height: auto;
+    text-align: start;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: white;
+    margin: 1.6em 0 5px 0;
+}
+
+.left_panel_content .state_content .info_container .title .score{
     width: auto;
     height: auto;
     display: flex;
@@ -422,14 +452,44 @@ html, body {
     justify-content: center;
 }
 
-.left_panel_content .state_content .general_info ul.a {
+.left_panel_content .state_content .info_container ul.a {
     list-style-type: circle;
     color: white;
 }
 
-.left_panel_content .state_content .general_info li {
+.left_panel_content .state_content .info_container .inner_list {
+    list-style-type: circle;
+}
+
+.left_panel_content .state_content .info_container li {
     font-weight: normal;
     font-size: 1.05em;
-    color: white;
     text-align: start;
 }
+
+.left_panel_content .state_content .info_container .card{
+    width: 100%;
+    height: auto;
+    padding: 2.5% 0 2.5% 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--background-color) !important;
+}
+
+.left_panel_content .state_content .info_container .card .card_content{
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.left_panel_content .state_content .gap {
+    width: 100%;
+    height: 50px !important;

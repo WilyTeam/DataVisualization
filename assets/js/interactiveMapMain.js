@@ -38,6 +38,79 @@ let n_inmigrants = [
     378
 ];
 
+let cities = [
+    ["Medellin", "test 2", "test 3"], 
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2, test 3"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"]
+];
+
+let state_hospitals = [
+    ["Medellin", "test 2", "test 3"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2, test 3"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"],
+    ["test", "test 2"]
+];
+
+
 function buildInitialData(){
     let id = 0;
     geoData.features.forEach(function (value, index){
@@ -47,6 +120,8 @@ function buildInitialData(){
         deptData.area = Math.round(value.properties.AREA / 1000000);
         deptData.geometry = value.geometry;
         deptData.nInmigrants = n_inmigrants[id];
+        deptData.cities = cities[id];
+        deptData.hospitals = state_hospitals[id];
         deptData.color = setPolygonsColor(n_inmigrants[id]);
         deptData.infowindow = [];
         data.push(deptData);
@@ -163,28 +238,107 @@ function setLeftPanelContent(id) {
 
     if(id == -1){
         content = content + 
-            '<span style="font-size: 7em; color: white;">' +
-                '<i class="fas fa-info-circle"></i>' +
-            '</span>' + 
-            '<h2 class="left_panel_h2">The full info of a state will be showed here.</h2>';
+            '<div class="default_content">' +
+                '<span style="font-size: 7em; color: white;">' +
+                    '<i class="fas fa-info-circle"></i>' +
+                '</span>' + 
+                '<h2 class="left_panel_h2">The full info of a state will be showed here.</h2>' +
+            '</div>';
     }else{
+
+        let citiesList = '<ul class="inner_list">';
+
+        data[id].cities.forEach(function (city) {
+            citiesList += '<li>' + city + '</li>';
+        });
+
+        citiesList += "</ul>";
+
+        let hospitals = "";
+
+        if (data[id].hospitals.length > 0){
+            hospitals =
+                '<div class="info_container">' +
+                    '<h2>Hospitals</h2>' +
+                    '<div class="card">' +
+                        '<div class="card_content">' +
+                            '<ul>';
+
+            data[id].hospitals.forEach(function (hospital) {
+                hospitals += '<li>' + hospital + '</li>';
+            });
+
+            hospitals += "</ul>";
+                        
+                    
+            hospitals += "</div></div></div>";
+        }
+
+        let borderPositions = "";
+
+        if (data[id].hospitals.length > 0) {
+            borderPositions =
+                '<div class="info_container">' +
+                '<h2>Border positions</h2>' +
+                '<div class="card">' +
+                    '<div class="card_content">' +
+                        '<ul>';
+
+            data[id].hospitals.forEach(function (hospital) {
+                borderPositions += '<li>' + hospital + '</li>';
+            });
+
+            borderPositions += "</ul>";
+
+
+            borderPositions += "</div></div></div>";
+        }
+
+        let help = "";
+
+        if (data[id].hospitals.length > 0) {
+            help =
+                '<div class="info_container">' +
+                '<h2>Helping Foundations</h2>' +
+                '<div class="card">' +
+                '<div class="card_content">' +
+                '<ul>';
+
+            data[id].hospitals.forEach(function (hospital) {
+                help += '<li>' + hospital + '</li>';
+            });
+
+            help += "</ul>";
+
+
+            help += "</div></div></div>";
+        }
+
         content = content +     
             '<div class="state_content">' +
-                '<div class="general_info">' +
+                '<div class="info_container">' +
                     '<div class="title">' +
                         '<h1 style="color: ' + data[id].color + '">' + data[id].name + '</h1>' +
                         '<div class = "score">' +
                             inmigrantScore +
                         '</div>' +
                     '</div>' +
-                    '<div class="general_info">' +
-                        '<ul>' +
-                            '<li><span class="bold_txt">Inmigrantes: </span>' + data[id].nInmigrants + '</li>' +
-                            '<li><span class="bold_txt">Superficie: </span>' + data[id].area + ' km²</li>' +
-                            '<li><span class="bold_txt">Ciudades principales: </span></li>' +
-                        '</ul>'
-                    '</div>' +
                 '</div>' +
+                '<div class="divider"></div>' +
+                '<div class="info_container">' +
+                    '<ul>' +
+                        '<li style="color:' + data[id].color + '"><span class="bold_txt">Inmigrants: </span>' + data[id].nInmigrants + '</li>' +
+                        '<li><span class="bold_txt">Area: </span>' + data[id].area + ' km²</li>' +
+                        '<li><span class="bold_txt">Lo que se me ocurra: </span></li></br>' +
+                        '<li><span class="bold_txt">Main cities: </span></li>' +
+                            citiesList +
+                    '</ul>' +
+                '</div>' +
+                '<div class="divider"></div>' +
+                hospitals +
+                borderPositions +
+                help +
+                '<div class="gap"></div>' +
             '</div>';
     }
 
