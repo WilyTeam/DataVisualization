@@ -14,25 +14,133 @@
 
     <div id="left_panel_1" class="left_panel"></div>
 
-    <div id="right_info_panel">
-        <span style="font-size: 3.7em; color: white; margin-bottom: 5px;">
-            <i class="fas fa-question-circle"></i>
-        </span>
-        <div>
-            <p id="info_txt">Click over the <span class="bold_txt">state shapes</span> or the <span class="bold_txt">markers</span> to see 
-                <span class="bold_txt">more information</span> about.
-            </p>
+    <div id="right_info_panels_container">
+        <div id="right_info_panel">
+            <div class="centered_info">
+                <div>
+                    <p id="info_txt">Click over the <span class="bold_txt">state shapes</span> or the <span
+                            class="bold_txt">markers</span> to see
+                        <span class="bold_txt">more information</span> about.
+                    </p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row_content">
+                <span class="frontier"></span>
+                <p>Border position</p>
+            </div>
+            <div class="row_content">
+                <span class="hospital"></span>
+                <p>Hospitals</p>
+            </div>
+
         </div>
-        <div class="divider"></div>
-        <div class="row_content">
-            <span class="frontier"></span>
-            <p>Border position</p>
+        <div id="right_info_panel">
+            <h1>Heat map conventions</h1>
+            <div class="divider"></div>
+            <div class="convention_container">
+                <div class="score" style="margin-top: 0.5em;">
+                    <span style="font-size: 1.55em; color: #3C97DB; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; margin-right: 8px;">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                    <span style="font-size: 1.55em; margin-right: 8px;">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                    <span style="font-size: 1.55em; margin-right: 8px;">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                    <span style="font-size: 1.5em">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                </div>
+                <h3>Less than <span style="color: #3C97DB;">7000</span> migrants</h3>
+            </div>
+            <div class="convention_container">
+                <div class="score" style="margin-top: 0.5em;">
+                    <span style="font-size: 1.55em; color: #F1A340; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #F1A340; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; margin-right: 8px;">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                    <span style="font-size: 1.55em; margin-right: 8px;">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                    <span style="font-size: 1.5em">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                </div>
+                <h3>Between <span style="color: #F1A340;">7000</span> and <span style="color: #F1A340;">15000</span> migrants</h3>
+            </div>
+            <div class="convention_container">
+                <div class="score" style="margin-top: 0.5em;">
+                    <span style="font-size: 1.55em; color: #F46D43; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #F46D43; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #F46D43; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; margin-right: 8px;">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                    <span style="font-size: 1.5em">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                </div>
+                <h3>Between <span style="color: #F46D43;">15000</span> and <span style="color: #F46D43;">60000</span>
+                    migrants</h3>
+            </div>
+            <div class="convention_container">
+                <div class="score" style="margin-top: 0.5em;">
+                    <span style="font-size: 1.55em; color: #D73027; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #D73027; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #D73027; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #D73027; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.5em">
+                        <i class="fas fa-male stroke-transparent-black"></i>
+                    </span>
+                </div>
+                <h3>Between <span style="color: #D73027;">60000</span> and <span style="color: #D73027;">150000</span>
+                    migrants</h3>
+            </div>
+            <div class="convention_container">
+                <div class="score" style="margin-top: 0.5em;">
+                    <span style="font-size: 1.55em; color: #9E0142; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #9E0142; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #9E0142; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #9E0142; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                    <span style="font-size: 1.55em; color: #9E0142; margin-right: 8px;">
+                        <i class="fas fa-male"></i>
+                    </span>
+                </div>
+                <h3>More than <span style="color: #9E0142;">150000</span> migrants</h3>
+            </div>
         </div>
-        <div class="row_content">
-            <span class="hospital"></span>
-            <p>Hospitals</p>
-        </div>
-        
     </div>
     <!-- Scripts -->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>

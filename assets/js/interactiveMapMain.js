@@ -39,77 +39,224 @@ let n_inmigrants = [
 ];
 
 let cities = [
-    ["Medellin", "test 2", "test 3"], 
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2, test 3"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"]
+    ["Medellín", "Bello", "Rionegro", "Itagui", "Envigado"], 
+    ["Barranquilla", "Soledad", "Malambo", "Baranoa", "Puerto Colombia"],
+    ["Bogotá D.C"],
+    ["Cartagena", "Mompós", "Turbaco"],
+    ["Tunja", "Duitama", "Chiquinquira", "Aquitania", "Villa de Leyva"],
+    ["Manizales", "Chinchina", "Villamaria", "Neira"],
+    ["Florencia", "Morelia"],
+    ["Popayan", "Santander de Quilichao"],
+    ["Valledupar", "Rio de oro", "Aguachica"],
+    ["Montera", "Lorica", "Montelibano"],
+    ["Soacha", "Zipaquira", "Facatativa", "Mosquera", "Girardot", "Madrid"],
+    ["Quibdó", "Tadó", "Condoto", "Baihia Solano", "Acandi"],
+    ["Neiva", "Garzón", "Rivera", "San agustín"],
+    ["Riohacha", "Maicao", "Uribia"],
+    ["Santa Marta", "Ciénaga", "Aracataca"],
+    ["Villavicencio", "Puerto Lopez", "Puerto Gaitán", "San Martín", "Acacías"],
+    ["Pasto", "Ipiales", "Tumaco", "Túquerres", "Cumbal"],
+    ["Cucúta", "Ocaña", "Pamplona", "Villa del Rosario", "El Zulia"],
+    ["Armenia", "Calarcá", "Circasia", "Salento", "Montenegro"],
+    ["Pereira", "Dosquebradas", "Santa Rosa de Cabal", "Quinchia", "Marsella"],
+    ["Bucaramanga", "Barrancabermeja", "Piedecuesta", "San Gil", "Girón", "Floridablanca"],
+    ["Sincelejo", "Corozal", "Covenas"],
+    ["Ibagué", "El espinal", "Libano", "Melgar"],
+    ["Cali", "Buenaventura", "Palmira", "Tuluá", "Cartago"],
+    ["Arauca", "Puerto Rondón", "Tame"],
+    ["Yopal", "Trinidad", "Monterrey"],
+    ["Mocoa", "Puerto Asis", "Villagarzón"],
+    ["Leticia", "Manaos", "Puerto Narino", "Iquitos"],
+    ["Inírida", "Puerto Colombia"],
+    ["San José de Guaviare", "Miraflores"],
+    ["Mitú", "Papunahua"],
+    ["Puerto Carreño", "La premavera"],
+    ["San andrés"]
 ];
 
 let state_hospitals = [
-    ["Medellin", "test 2", "test 3"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2, test 3"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"],
-    ["test", "test 2"]
+    ["Leon XIII universitary hospital"],
+    ["Departamental hospital Juan Domínguez", "General hospital of Barranquilla"],
+    ["San Ignacio hospital"],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    ["San Rafael de albania hospital", "San agustin hospital"],
+    ["San cristobal de la cienaga"],
+    [],
+    [],
+    ["ESE imsalud", "Erasmo Meoz hospital"],
+    [],
+    [],
+    [],
+    [],
+    [],
+    ["Valle del Lili de Cali hospital"],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
 ];
 
+let state_borderPositions = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    ["Paraguachón"],
+    [],
+    [],
+    ["Rumichaca"],
+    ["La Unión Puerto Santander", "Francisco de Paula Santander bridge", "Simon Bolívar bridge"],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    ["José Antonio Páez bridge"],
+    [],
+    ["San Miguél river"],
+    [],
+    ["Puerto Inírida"],
+    [],
+    [],
+    ["Puerto Carreño"],
+    []
+];
+
+let help1 = [
+    ["ACNUR (Humanitary help CRN)", "ADRA", "DRC (Humanity & Inclusion)", "IRC", "Mercy Corps", "NRC", "OIM"],
+    ["ACNUR (Hias)", "DRC (Humanity & Inclusion)", "FICR (SNCRC)", "FUPAD", "NRC", "OIM", "UNICEF", "World Vision", "International Plan"],
+    ["Accion contra el hambre", "ACNUR", "Caritas Switzerland", "DRC (Humanity & Inclusion)", "Federacion luterana mundial", "FUPAD", "NRC", "OIM", "Save the Children", "SNCRC"],
+    ["ACNUR (Hias)", "FICR (SNCRC)", "FUPAD", "OIM", "International Plan"],
+    ["ACNUR"],
+    ["NRC"],
+    [],
+    [],
+    ["Accion contra el hambre", "ACNUR", "Mercy Corps", "PMA (Parroquia San Francisco de Asis, SNCRC)", "UNICEF"],
+    [],
+    ["FICR (SNCRC)", "NRC"],
+    [],
+    [],
+    ["Accion contra el hambre", "ACNUR (DRC, Malteser, Pastoral Social)", "DRC (Humanity & Inclusion)", "FAO", "FICR (SNCRC)", "FUPAD", "Malteser international", "Mercy Corps",
+        "NRC", "OIM", "OXFAM", "PMA (SNCRC, Fundacion Guajira naciente)", "SNCRC", "Save the Children", "UNICEF", "Wolrd Vision"],
+    ["NRC"],
+    ["Federacion luterana mundial", "SNCRC", "Save the Children"],
+    ["Accion contra el hambre", "ACNUR", "FICR (SNCRC)", "NRC", "OIM", "PMA (ASOPASTOS Club, Kiwanis Corporation, Scalabrini Coporation, Proinco fundation, Pastoral social)",
+        "SNCRC", "UNFPA (Medicos del mundo)", "UNICEF"],
+    ["Accion contra el hambre", "ACNUR (Scalabrini Coporation, CORPRODINCO)", "Ayuda en accion (Scalabrini Coporation)", "FICR (SNCRC)", "IRC", "NRC", "OIM", "OXFAM", "International plan",
+        "PMA (CONSORNOC, COSPAS, SNCRC, Diocese of Cucuta, San Carlos Missionaries, Parroquia de nuestra señora de las gracias, Samaritan's Purse, TdH, World vision)",
+        "Save the Children", "SNCRC", "UNFPA (Halu)", "UNICEF (Halu, World vision)", "World vision"],
+    ["ACNUR", "NRC"],
+    [],
+    ["Accion contra el hambre", "ADRA", "FICR (SNCRC)", "NRC", "OIM", "OXFAM", "PMA (Samaritan's Purse)", "Save the Children", "SNCRC"],
+    [],
+    ["NRC"],
+    ["ACNUR", "FUPAD", "NRC", "OIM", "Save the Children", "SNCRC"],
+    ["FICR (SNCRC)", "Federacion luterana mundial", "FUPAD", "NRC", "PMA (AMAR, Apoyar, Confiar, Pastoral Social)", "Save the Children", "UNFPA (GENFAMI)", "UNICEF"],
+    ["Federacion luterana mundial"],
+    ["Accion contra el hambre", "FICR (SNCRC)"],
+    [],
+    ["SNCRC"],
+    [],
+    [],
+    ["Accion contra el hambre", "FICR (SNCRC)"],
+    []
+];
+
+let help2 = [
+    ["ACNUR (CIRC, Corporacion Ayuda Humanitaria, Partoral social)", "Humanitary & Inclusion", "IRC"],
+    ["ACNUR (Hias)", "DRC", "NRC", "ONU Women", "International plan"],
+    ["ACNUR (Aldeas infantiles, Coalico, Pastoral social)", "Caritas Switzerland", "FUPAD", "NRC", "International plan", "War child"],
+    ["ACNUR"],
+    ["ACNUR"],
+    [],
+    [],
+    [],
+    ["Accion contra el hambre", "ACNUR", "NRC"],
+    ["ACNUR"],
+    ["NRC"],
+    ["ACNUR"],
+    [],
+    ["ACNUR (Coalico, DRC, Pastoral social)", "DRC (Humanity & Inclusion)", "FUPAD", "NRC"],
+    ["NRC"],
+    [],
+    ["ACNUR (Coalico, Corporacion infancia y desarrollo, Defensoria, Pastoral social)", "NRC", "UNFPA (Medicos del mundo)", "UNICE", "World vision"],
+    ["ACNUR (Bethany, Coalico, CORPRODINCO, Defensoria, NRC)", "ADRA", "IRC", "NRC", "International plan", "UNFPA (Halu)"],
+    [],
+    ["ACNUR"],
+    ["ACNUR (Aldeas infantiles, Defensoria)"],
+    [],
+    ["ACNUR"],
+    ["ACNUR", "Diakonie (Fundacion tierra de la paz)"],
+    ["ACNUR (Coalico, Defensoria)", "Federacion luterana mundial", "NRC", "Save the Children", "UNFPA (GENFAMI)"],
+    [],
+    ["ACNUR"],
+    [],
+    ["Diakonie (Corporacion infancia y desarrollo)"],
+    [],
+    [],
+    ["Diakonie (Corporacion infancia y desarrollo)"],
+    []
+];
+
+let help3 = [
+    ["ACNUR (Corporacion ayuda humanitaria)"],
+    ["ACNUR (Hias)", "NRC"],
+    ["ACNUR (FUPAD)", "FUPAD", "NRC", "OIM", "OIT"],
+    [],
+    ["ACNUR"],
+    [],
+    [],
+    ["OIM"],
+    ["Accion contra el hambre"],
+    [], 
+    ["NRC"],
+    [],
+    [],
+    ["ACNUR (DRC, FUPAD)", "FAO", "FUPAD", "NRC"],
+    ["NRC"],
+    [],
+    ["ACNUR", "NRC", "OIM"],
+    ["ACNUR (CORPRODINCO, COSPAS, Minuto de Dios)", "Ayuda en accion (Scalabrini Corporation)", "NRC"],
+    [],
+    [],
+    [],
+    [],
+    ["OIM"],
+    ["FUPAD", "NRC", "OIM"],
+    ["ACNUR", "FUPAD", "NRC", "UNICEF"],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+];
 
 function buildInitialData(){
     let id = 0;
@@ -122,6 +269,10 @@ function buildInitialData(){
         deptData.nInmigrants = n_inmigrants[id];
         deptData.cities = cities[id];
         deptData.hospitals = state_hospitals[id];
+        deptData.borderPositions = state_borderPositions[id];
+        deptData.help1 = help1[id];
+        deptData.help2 = help2[id];
+        deptData.help3 = help3[id];
         deptData.color = setPolygonsColor(n_inmigrants[id]);
         deptData.infowindow = [];
         data.push(deptData);
@@ -255,6 +406,7 @@ function setLeftPanelContent(id) {
         citiesList += "</ul>";
 
         let hospitals = "";
+        let hospitalsCount = '<li><span class="bold_txt">Atention hospitals for migrants: ' + data[id].hospitals.length + '</span></li>';
 
         if (data[id].hospitals.length > 0){
             hospitals =
@@ -265,18 +417,17 @@ function setLeftPanelContent(id) {
                             '<ul>';
 
             data[id].hospitals.forEach(function (hospital) {
-                hospitals += '<li>' + hospital + '</li>';
+                hospitals += '<li class="clickable_li" onclick="openHospitalDialog(this)">' + hospital + '</li>';
             });
 
-            hospitals += "</ul>";
-                        
-                    
+            hospitals += "</ul>"; 
             hospitals += "</div></div></div>";
         }
 
         let borderPositions = "";
+        let subtitle = "";
 
-        if (data[id].hospitals.length > 0) {
+        if (data[id].borderPositions.length > 0) {
             borderPositions =
                 '<div class="info_container">' +
                 '<h2>Border positions</h2>' +
@@ -284,41 +435,80 @@ function setLeftPanelContent(id) {
                     '<div class="card_content">' +
                         '<ul>';
 
-            data[id].hospitals.forEach(function (hospital) {
-                borderPositions += '<li>' + hospital + '</li>';
+            data[id].borderPositions.forEach(function (borderPosition) {
+                borderPositions += '<li class="clickable_li" onclick="openBorderDialog(this)">' + borderPosition + '</li>';
             });
 
             borderPositions += "</ul>";
-
-
             borderPositions += "</div></div></div>";
+            subtitle = "<h3>Border state</h3>";
         }
 
-        let help = "";
+        let help1 = "";
+        let help1Count = '<li><span class="bold_txt">Direct Emergency Assistance Entities: ' + data[id].help1.length + '</span></li>';
 
-        if (data[id].hospitals.length > 0) {
-            help =
+        if (data[id].help1.length > 0) {
+            help1 =
                 '<div class="info_container">' +
-                '<h2>Helping Foundations</h2>' +
+                '<h2>Direct Emergency Assistance Entities</h2>' +
                 '<div class="card">' +
                 '<div class="card_content">' +
                 '<ul>';
 
-            data[id].hospitals.forEach(function (hospital) {
-                help += '<li>' + hospital + '</li>';
+            data[id].help1.forEach(function (help) {
+                help1 += '<li>' + help + '</li>';
             });
 
-            help += "</ul>";
+            help1 += "</ul>";
+            help1 += "</div></div></div>";
+        }
 
+        let help2 = "";
+        let help2Count = '<li><span class="bold_txt">Protection Entities: ' + data[id].help2.length + '</span></li>';
 
-            help += "</div></div></div>";
+        if (data[id].help2.length > 0) {
+            help2 =
+                '<div class="info_container">' +
+                '<h2>Protection Entities</h2>' +
+                '<div class="card">' +
+                '<div class="card_content">' +
+                '<ul>';
+
+            data[id].help2.forEach(function (help) {
+                help2 += '<li>' + help + '</li>';
+            });
+
+            help2 += "</ul>";
+            help2 += "</div></div></div>";
+        }
+
+        let help3 = "";
+        let help3Count = '<li><span class="bold_txt">Socioeconomic and Cultural Integration Entities: ' + data[id].help3.length + '</span></li>';
+
+        if (data[id].help3.length > 0) {
+            help3 =
+                '<div class="info_container">' +
+                '<h2>Socioeconomic and Cultural Integration Entities</h2>' +
+                '<div class="card">' +
+                '<div class="card_content">' +
+                '<ul>';
+
+            data[id].help3.forEach(function (help) {
+                help3 += '<li>' + help + '</li>';
+            });
+
+            help3 += "</ul>";
+            help3 += "</div></div></div>";
         }
 
         content = content +     
             '<div class="state_content">' +
                 '<div class="info_container">' +
                     '<div class="title">' +
-                        '<h1 style="color: ' + data[id].color + '">' + data[id].name + '</h1>' +
+                        '<div style="width: 80%">' +
+                            '<h1 style="color: ' + data[id].color + '">' + data[id].name + '</h1>' +
+                            subtitle +
+                        '</div>' +
                         '<div class = "score">' +
                             inmigrantScore +
                         '</div>' +
@@ -329,15 +519,20 @@ function setLeftPanelContent(id) {
                     '<ul>' +
                         '<li style="color:' + data[id].color + '"><span class="bold_txt">Inmigrants: </span>' + data[id].nInmigrants + '</li>' +
                         '<li><span class="bold_txt">Area: </span>' + data[id].area + ' km²</li>' +
-                        '<li><span class="bold_txt">Lo que se me ocurra: </span></li></br>' +
-                        '<li><span class="bold_txt">Main cities: </span></li>' +
+                        hospitalsCount +
+                        help1Count +
+                        help2Count +
+                        help3Count +
+                        '</br><li><span class="bold_txt">Main cities: </span></li>' +
                             citiesList +
                     '</ul>' +
                 '</div>' +
                 '<div class="divider"></div>' +
                 hospitals +
                 borderPositions +
-                help +
+                help1 +
+                help2 +
+                help3 +
                 '<div class="gap"></div>' +
             '</div>';
     }
@@ -347,10 +542,20 @@ function setLeftPanelContent(id) {
     document.getElementById("left_panel_1").innerHTML = content;
 }
 
+function openHospitalDialog(hospitalName){
+    displayHospitalInfoWindow(hospitalName.textContent);
+    setMapCenter(hospitals[hospitalName.textContent][0]);
+}
+
+function openBorderDialog(hospitalName) {
+    displayFrontierInfoWindow(hospitalName.textContent);
+    setMapCenter(hospitals[hospitalName.textContent][0]);
+}
+
 $(document).ready(function () {
     buildInitialData();
     $("#left_panel_1").css("left", "0");
-    $("#right_info_panel").css("right", "0");
+    $("#right_info_panels_container").css("right", "0");
     setLeftPanelContent(-1);
 });
 
@@ -377,7 +582,7 @@ hospitals = {
     "ESE imsalud": [[7.884428, -72.486923]],
     "Erasmo Meoz hospital": [[7.904306, -72.491108]],
     "San Ignacio hospital": [[4.628549, -74.064004]]
-}
+};
 
 // MAP
 
@@ -417,7 +622,7 @@ function onGoogleMapResponse() {
 }
 
 function setMapCenter(latlng) {
-    map.setCenter(new google.maps.LatLng(latlng[0], latlng[1]));
+    map.setCenter(new google.maps.LatLng(latlng[0], latlng[1] - getMapOffset()));
 }
 
 function setPolygons(){
@@ -672,15 +877,27 @@ function getMapOffset() {
     var mapOffset = 0;
     var zoom = map.getZoom();
 
-    // y = x-(x*0.5)
-    if (zoom <= 12) {
+    // y = x*0.5
+    if (zoom <= 6) {
+        mapOffset = 4.7;
+    } else if (zoom > 6 && zoom <= 7) {
+        mapOffset = 3.5;
+    } else if (zoom > 7 && zoom <= 8) {
+        mapOffset = 1.5;
+    } else if (zoom > 8 && zoom <= 9) {
+        mapOffset = 0.8;
+    } else if (zoom > 9 && zoom <= 10) {
+        mapOffset = 0.6;
+    } else if (zoom > 10 && zoom <= 11) {
+        mapOffset = 0.4;
+    } else if (zoom > 11 && zoom <= 12) {
         mapOffset = 0.11;
     } else if (zoom > 12 && zoom <= 13) {
-        mapOffset = 0.05;
+        mapOffset = 0.03;
     } else if (zoom > 13 && zoom <= 14) {
-        mapOffset = 0.025;
+        mapOffset = 0.015;
     } else if (zoom > 14 && zoom <= 15) {
-        mapOffset = 0.0125;
+        mapOffset = 0.0095;
     } else if (zoom > 15 && zoom <= 16) {
         mapOffset = 0.00625;
     } else if (zoom > 16 && zoom <= 17) {
