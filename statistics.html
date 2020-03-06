@@ -62,10 +62,33 @@
 
                 <div id="popup1" class="overlay">
                     <div class="popup">
-                        <h2>un titulo</h2>
+                        
                         <a class="close" href="#">&times;</a>
                         <div class="content">
-                            Informacion :D
+                            <div class="tabset">
+                                <!-- Tab 1 -->
+                                <input type="radio" name="tabset" id="tab1" aria-controls="Man" checked>
+                                <label for="tab1">Man</label>
+                                <!-- Tab 2 -->
+                                <input type="radio" name="tabset" id="tab2" aria-controls="Woman">
+                                <label for="tab2">Woman</label>
+    
+                                
+                                <div class="tab-panels">
+                                  <section id="Man" class="tab-panel">
+                                    <video class="exporevideo">
+                                        <source src="videos/2.Who_is_migrating_/pop_up_men.mp4" type="video/mp4">
+                                    </video>
+                                </section>
+                                  <section id="Woman" class="tab-panel">
+                                    <video class="exporevideo">
+                                        <source src="videos/2.Who_is_migrating_/pop_up_women.mp4" type="video/mp4">
+                                    </video>
+                                  </section>
+
+                                </div>
+                                
+                              </div>
                         </div>
                     </div>
                 </div>
