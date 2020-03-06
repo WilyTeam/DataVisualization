@@ -1914,7 +1914,7 @@
 	.tiny_box_container{
 		width: 100%;
 		height: auto;
-		margin-top: 4vh !important;
+		margin-top: 1vh !important;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -1929,7 +1929,17 @@
 
 	}
 
+	.tiny_box .row_content_map{
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
 		.tiny_box {
+			max-width: 520px;
 			background: rgba(0, 0, 0, 0.75);
 			border-radius: 5px;
 			overflow: hidden;
