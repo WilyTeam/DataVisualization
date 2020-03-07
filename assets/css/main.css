@@ -1595,6 +1595,10 @@
 	.first {
 		width: 55em;
 	}
+	.second{
+		width: 90em;
+		height: 40em;
+	}
 
 	@media screen and (max-width: 1280px) {
 
@@ -1602,6 +1606,10 @@
 			width: 55em;
 		}
 
+		.second{
+			width: 90%;
+		
+		}
 	}
 
 	@media screen and (max-width: 980px) {
@@ -1610,12 +1618,21 @@
 			width: 80%;
 		}
 
+		.second{
+			width: 80%;
+			
+		}
+
 	}
 
 	@media screen and (max-width: 736px) {
 
 		.first {
 			width: 90%;
+		}
+		.second{
+			width: 90%;
+			height: 90%;
 		}
 
 	}
@@ -1883,6 +1900,154 @@
 		@media screen and (max-width: 480px) {
 
 			.box {
+				padding: 1em;
+			}
+
+		}
+
+/* popup */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 70%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+		
+
+
+
+/*graph */
+.graph {
+	background-color: rgb(255,255,255,1);
+	color: #000; 
+}
+
+/* Graphics Box */
+
+	.graphics_box {
+		background: rgba(255, 255, 255, 0);
+		padding: 2em;
+		width: auto !important;
+		height: auto !important;
+		margin: 0 0 0 0 !important;
+		-moz-align-items: center;
+    	-webkit-align-items: center;
+    	-ms-align-items: center;
+    	align-items: center;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		border-top: 0;
+		position: relative;
+		text-align: center;
+		overflow: hidden;
+	}
+
+		.graphics_box > :last-child,
+		.graphics_box > :last-child > :last-child,
+		.graphics_box > :last-child > :last-child > :last-child {
+			margin-bottom: 0;
+		}
+
+		.graphics_box header h1{
+			font-size: 4em;
+			line-height: 1.1;
+			margin-bottom: 0.35em;
+			color: rgb(0, 0, 0);
+			text-transform: none;
+		}
+
+		.graphics_box header p {
+			font-size: 1.15em;
+			color: rgba(0, 0, 0);
+		}
+
+		.graphics_box.alt {
+			border: 0;
+			border-radius: 0;
+			padding: 0;
+		}
+
+		@media screen and (max-width: 980px) {
+
+			.graphics_box {
+				padding: 2.5em;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			.graphics_box {
+				padding: 1.5em;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.graphics_box {
 				padding: 1em;
 			}
 
@@ -2524,69 +2689,7 @@
 		padding: 0.75em 1em;
 	}
 
-	input[type="checkbox"],
-	input[type="radio"] {
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		-ms-appearance: none;
-		appearance: none;
-		display: block;
-		float: left;
-		margin-right: -2em;
-		opacity: 0;
-		width: 1em;
-		z-index: -1;
-	}
 
-		input[type="checkbox"] + label,
-		input[type="radio"] + label {
-			text-decoration: none;
-			cursor: pointer;
-			display: inline-block;
-			font-size: 1em;
-			font-weight: 300;
-			padding-left: 2.4em;
-			padding-right: 0.75em;
-			position: relative;
-		}
-
-			input[type="checkbox"] + label:before,
-			input[type="radio"] + label:before {
-				-moz-osx-font-smoothing: grayscale;
-				-webkit-font-smoothing: antialiased;
-				font-family: FontAwesome;
-				font-style: normal;
-				font-weight: normal;
-				text-transform: none !important;
-			}
-
-			input[type="checkbox"] + label:before,
-			input[type="radio"] + label:before {
-				border-radius: 4px;
-				border: solid 1px;
-				content: '';
-				display: inline-block;
-				height: 1.65em;
-				left: 0;
-				line-height: 1.58125em;
-				position: absolute;
-				text-align: center;
-				top: 0;
-				width: 1.65em;
-			}
-
-		input[type="checkbox"]:checked + label:before,
-		input[type="radio"]:checked + label:before {
-			content: '\f00c';
-		}
-
-	input[type="checkbox"] + label:before {
-		border-radius: 4px;
-	}
-
-	input[type="radio"] + label:before {
-		border-radius: 100%;
-	}
 
 	::-webkit-input-placeholder {
 		opacity: 1.0;
@@ -2636,7 +2739,7 @@
 
 	input[type="checkbox"] + label,
 	input[type="radio"] + label {
-		color: rgba(255, 255, 255, 0.75);
+		color: rgb(0, 0, 0);
 	}
 
 		input[type="checkbox"] + label:before,
@@ -4726,3 +4829,71 @@
 			}
 
 		}
+
+
+
+		.tabset > input[type="radio"] {
+			position: absolute;
+			left: -200vw;
+		  }
+		  
+		  .tabset .tab-panel {
+			display: none;
+		  }
+		  
+		  .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+		  .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+		  .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+		  .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+		  .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+		  .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+			display: block;
+		  }
+		  
+		  /*
+		   Styling
+		  */
+
+		  
+		  .tabset > label {
+			position: relative;
+			display: inline-block;
+			padding: 2vh 2vh 2vh;
+			border: 1px solid transparent;
+			border-bottom: 0;
+			cursor: pointer;
+			font-weight: 600;
+		  }
+		  
+		  .tabset > label::after {
+			
+			position: absolute;
+			left: 15px;
+			bottom: 10px;
+			width: 22px;
+			height: 4px;
+			background: #8d8d8d;
+		  }
+		  
+		  .tabset > label:hover,
+		  .tabset > input:focus + label {
+			color: #06c;
+		  }
+		  
+		  .tabset > label:hover::after,
+		  .tabset > input:focus + label::after,
+		  .tabset > input:checked + label::after {
+			background: #06c;
+		  }
+		  
+		  .tabset > input:checked + label {
+			border-color: #ccc;
+			border-bottom: 1px solid #fff;
+			margin-bottom: -1px;
+		  }
+		  
+		  .tab-panel {
+			padding: 30px 0;
+			border-top: 1px solid #ccc;
+		  }
+		  
